@@ -27,4 +27,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: ${{ secrets.DOCKER_USERNAME }}/your-frontend-repo:latest,${{ secrets.DOCKER_USERNAME }}/your-backend-repo:latest
+          tags: ${{ secrets.DOCKER_USERNAME }}/cowork_frontend:latest,${{ secrets.DOCKER_USERNAME }}/cowork_backend:latest

@@ -38,10 +38,10 @@ RUN npm install
 COPY . .
 
 # Build the frontend
-RUN npm run build --prefix frontend
+RUN npm run build
 
 # Expose the ports that the apps run on
 EXPOSE 3000 5173
 
 # Command to run both the backend and frontend
-CMD ["sh", "-c", "npm run start & npm run dev --prefix frontend"]
+CMD ["sh", "-c", "npm run start & npm run dev"]

@@ -1,7 +1,5 @@
-
-
-# Use the official Node.js image as the base image
-FROM node:20-alpine
+# Stage 1: Build the React app
+FROM node:20-alpine as build-stage
 
 # Set the working directory inside the container
 WORKDIR /app
@@ -18,8 +16,14 @@ COPY . .
 # Build the frontend
 RUN npm run build
 
-# Expose the port that the app runs on
-EXPOSE 5173
+# Stage 2: Serve the app with Nginx
+FROM nginx:stable-alpine as production-stage
 
-# Command to run the app
-CMD ["npm", "run", "dev"]
+# Copy the build output to the Nginx html directory
+COPY --from=build-stage /app/dist /usr/share/nginx/html
+
+# Expose the port that Nginx will serve on
+EXPOSE 80
+
+# Command to run Nginx
+CMD ["nginx", "-g", "daemon off;"]

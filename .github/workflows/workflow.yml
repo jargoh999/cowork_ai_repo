@@ -73,6 +73,5 @@ jobs:
           push: true
           tags: ${{ secrets.DOCKER_USERNAME }}/cowork_component:latest
 
-      - name: Expose port
-        run: echo "EXPOSE 5173" >> Dockerfile
+
 

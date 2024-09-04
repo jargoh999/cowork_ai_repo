@@ -35,10 +35,7 @@ COPY package*.json ./
 RUN npm install
 
 # Copy the rest of the application code to the working directory
-COPY . .
-
-# Build the frontend
-RUN npm run build
+COPY .. .
 
 # Expose the ports that the apps run on
 EXPOSE 3000 5173

@@ -76,5 +76,3 @@ jobs:
       - name: Expose port
         run: echo "EXPOSE 5173" >> Dockerfile
 
-      - name: Run the app
-        run: docker run -p 5173:5173 ${{ secrets.DOCKER_USERNAME }}/cowork_component:latest
